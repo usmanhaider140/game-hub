@@ -15,7 +15,7 @@ interface ListItemProps {
 const ListItem = styled.li<ListItemProps>`
   border: 1px solid #ccc;
   padding: 10px 5px;
-  border: collapse;
+  border-collapse: collapse;
   background-color: ${(props) => (props.active ? "red" : "none")};
 `;
 interface ListGroupProps {
