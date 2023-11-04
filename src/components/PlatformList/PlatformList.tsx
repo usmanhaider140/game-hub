@@ -37,7 +37,7 @@ function PlatformList({ platforms }: Props) {
           key={platform.id}
           as={iconMap[platform.slug]}
           color={"gray.500"}
-          width={"15px"}
+          height={"15px"}
         />
       ))}
     </HStack>
