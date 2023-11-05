@@ -1,5 +1,5 @@
-import React, {useEffect, useRef, useState} from "react";
-import ProductList from "./ProductList";
+import React, { useEffect, useRef, useState } from "react";
+import ProductList from "../ProductList/ProductList";
 // import Like from "./components/Like";
 // import ExpandableText from "./components/ExpandableText";
 // import FormExercise from "./components/FormExercise";
@@ -46,26 +46,29 @@ import ProductList from "./ProductList";
 //   });
 // };
 export const State = () => {
-    const inputRef = useRef<HTMLInputElement>(null)
-    const [category,setCategory] = useState<string>('')
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [category, setCategory] = useState<string>("");
 
-    //   after Render
-    useEffect(() => {
-        //     Side Effect
-        if(inputRef.current) inputRef.current?.focus()
-    }, [])
+  //   after Render
+  useEffect(() => {
+    //     Side Effect
+    if (inputRef.current) inputRef.current?.focus();
+  }, []);
 
-    return (
-        <div>
-            {/* <Form /> */}
-            <select className="form-select" onChange={(e) => setCategory(e.target.value)}>
-                <option value=""></option>
-                <option value="clothing">Clothing</option>
-                <option value="household">HouseHold</option>
-            </select>
-            <ProductList category={category}/>
-        </div>
-    )
-}
+  return (
+    <div>
+      {/* <Form /> */}
+      <select
+        className="form-select"
+        onChange={(e) => setCategory(e.target.value)}
+      >
+        <option value=""></option>
+        <option value="clothing">Clothing</option>
+        <option value="household">HouseHold</option>
+      </select>
+      <ProductList category={category} />
+    </div>
+  );
+};
 
-export default State
+export default State;
