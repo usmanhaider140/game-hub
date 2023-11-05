@@ -20,7 +20,11 @@ interface FetchGamesResponse {
   count: number;
   results: Game[];
 }
-const useGames = (selectedGenre: Genre | null) => {
+
+const useGames = (
+  selectedGenre: Genre | null,
+  selectedPlatform: Platform | null
+) => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -32,6 +36,7 @@ const useGames = (selectedGenre: Genre | null) => {
         signal: controller.signal,
         params: {
           genres: selectedGenre?.id,
+          platforms: selectedPlatform?.id,
         },
       })
       .then((res) => {
@@ -45,7 +50,7 @@ const useGames = (selectedGenre: Genre | null) => {
       });
 
     return () => controller.abort();
-  }, [selectedGenre]);
+  }, [selectedGenre, selectedPlatform]);
   return { games, error, isLoading };
 };
 
