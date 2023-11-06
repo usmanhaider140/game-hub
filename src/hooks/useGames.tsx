@@ -34,6 +34,7 @@ const useGames = (gameQuery: GameQuery) => {
         params: {
           genres: gameQuery.genre?.id,
           platforms: gameQuery.platform?.id,
+          ordering: gameQuery.sortOrder,
         },
       })
       .then((res) => {
@@ -47,7 +48,7 @@ const useGames = (gameQuery: GameQuery) => {
       });
 
     return () => controller.abort();
-  }, [gameQuery.genre, gameQuery.platform]);
+  }, [gameQuery]);
   return { games, error, isLoading };
 };
 
